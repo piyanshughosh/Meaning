@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Things I wanted to say...</title>
+    <title>Thoughts I wanted to share</title>
     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
@@ -69,12 +69,16 @@
     </style>
 </head>
 <body>
-    <audio conntrols autplay>
-        <source src = "https://soundcloud.com/martyna-biernat-948458617/lord-huron-the-night-we-met?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"/>
+    <!-- Audio element for the song -->
+    <audio controls >
+        <!-- Source of the audio file hosted on the web -->
+        <source src="https://drive.google.com/file/d/1LwQ_lw84hP8TZeZZ66t1AZuKbdC5cBPC/preview">
+        <!-- Fallback text in case the audio file is not found -->
+        Your browser does not support the audio element.
     </audio>
 
     <div class="container">
-        <div class="title">Things I wanted to say...</div>
+        <div class="title">Thoughts I wanted to share</div>
         <div class="dialogue-box" id="message1">Welcome to Adulthood</div>
         <div class="dialogue-box hidden" id="message2">You thought I forgot ?? huh, not even in my wildest dreams</div>
         <div class="dialogue-box hidden" id="message3">So here you are stepping into adulthood, about to embark on an amazing journey ahead</div>
@@ -87,4 +91,22 @@
 
     <script>
         const messages = document.querySelectorAll('.dialogue-box');
-       
+        const nextButton = document.getElementById('nextButton');
+        let currentIndex = 0;
+
+        function showNextMessage() {
+            if (currentIndex < messages.length - 1) {
+                messages[currentIndex].classList.add('hidden');
+                currentIndex++;
+                messages[currentIndex].classList.remove('hidden');
+            }
+
+            if (currentIndex === messages.length - 1) {
+                nextButton.classList.add('hidden');
+            }
+        }
+
+        nextButton.addEventListener('click', showNextMessage);
+    </script>
+</body>
+</html>
